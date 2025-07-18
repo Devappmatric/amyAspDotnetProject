@@ -1,0 +1,25 @@
+﻿@media only screen and (min-width: 1200px) {
+    h2 {
+        font-family: HelveticaNeueLTStd;
+    }
+}
+@media only screen and (min-width: 992px) {
+    h2 {
+        font-family: HelveticaNeueLTStd;
+    }
+}
+@media only screen and (min-width: 768px) {
+    h2 {
+        font-family: HelveticaNeueLTStd;
+    }
+}
+@media only screen and (min-width: 480px) {
+    h2 {
+        font-family: HelveticaNeueLTStd;
+    }
+}
+@media only screen and (min-width: 320px) {
+    h2 {
+        font-family: HelveticaNeueLTStd;
+    }
+}

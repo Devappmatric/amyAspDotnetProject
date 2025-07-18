@@ -1,0 +1,275 @@
+<!doctype html>
+<html>
+<head>
+    <title></title>
+</head>
+<body style='font-family: Arial; font-size: 12px;'>
+    <strong>Thank you for registering with Productivity Point Learning Solutions. We appreciate your Business!</strong><br /><br />
+    <div style='background-color: #ECF3F9; padding: 10px; font-size: 14px; border-bottom: 1px solid #E5E3E3; margin: 0px 0px 10px 0px;'>
+        <strong>Order Summary</strong>
+    </div>
+    <strong>Class:</strong> EX200 Red Hat Certified System Administrator Exam  <br /><strong>Price: $</strong> $400.00<br /><strong>Subtotal:</strong> $400.00<br /><strong>Seats/Quantity:</strong> 1<br /><strong>Delivery Format:</strong> Instructor In Classroom<br /><strong>Date:</strong> 04/05/2019 - 04/05/2019<br /><strong>Time:</strong> 9:00:00 AM - 12:00:00 PM<br /><strong>Duration:</strong> 1 Day Course<br /><strong>Location:</strong> <br />12900 Challenger Parkway <br />Orlando, FL 32826<br /><br /><strong>Class:</strong> RH254 Red Hat System Administration III  <br /><strong>Price: $</strong> $3,200.00<br /><strong>Subtotal:</strong> $6,400.00<br /><strong>Seats/Quantity:</strong> 2<br /><strong>Delivery Format:</strong> Instructor In Classroom<br /><strong>Date:</strong> 12/16/2019 - 12/19/2019<br /><strong>Time:</strong> 9:00:00 AM - 5:00:00 PM<br /><strong>Duration:</strong> 4 Day Course<br /><strong>Location:</strong> <br />12900 Challenger Parkway <br />Orlando, FL 32826<br /><br />
+    <div style='background-color: #ECF3F9; padding: 10px; font-size: 14px; border-bottom: 1px solid #E5E3E3; margin: 0px 0px 10px 0px;'>
+        <strong>Student Information</strong>
+    </div>
+    <strong>Student Name:</strong> jane<br /><strong>E-Mail:</strong> jane@qwas.com<br /><strong>Course:</strong> EX200 Red Hat Certified System Administrator Exam   - Orlando, FL<br /><br /><strong>Student Name:</strong> Alexander Kudryashev<br /><strong>E-Mail:</strong> alex.kudryashev@gmail.com<br /><strong>Course:</strong> RH254 Red Hat System Administration III   - Orlando, FL<br /><br /><strong>Student Name:</strong> joe<br /><strong>E-Mail:</strong> joe@qwas.com<br /><strong>Course:</strong> RH254 Red Hat System Administration III   - Orlando, FL<br /><br />
+    <div style='background-color: #ECF3F9; padding: 10px; font-size: 14px; border-bottom: 1px solid #E5E3E3; margin: 0px 0px 10px 0px;'>
+        <strong>Purchasing Information</strong>
+    </div>
+    <strong>Order Number:</strong> 2294<br /><strong>Order Date:</strong> 5/19/2019<br /><strong>Payment Method:</strong> Card<br />VISA ...1111<br /><strong>Total Cost:</strong> $6,120.00<br /><br />
+    <div style='background-color: #ECF3F9; padding: 10px; font-size: 14px; border-bottom: 1px solid #E5E3E3; margin: 0px 0px 10px 0px;'>
+        <strong>Billing Information</strong>
+    </div>Alexander Kudryashev
+    <br />qwas, inc<br />1346 Tropical Cove<br />Gulfport, MS 39507 US<br />2285965668<br /><br />
+    <div style='background-color: #ECF3F9; padding: 10px; font-size: 14px; border-bottom: 1px solid #E5E3E3; margin: 0px 0px 10px 0px;'>
+        <strong>Contact Information</strong>
+    </div>Alexander Kudryashev
+    <br />qwas, inc<br />1346 Tropical Cove<br />Gulfport, MS 39507 US<br />2285965668<br /><br /><strong>Please allow us 24 hours to process your payment.</strong><br />For more information, please contact us at <strong><a href='tel:1-844-238-8607'>844-238-8607</a><strong> or <a href='mailto:info@productivitypointls.com'>info@productivitypointls.com</a>.<br /><br />
+</body>
+</html>
+<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+    <ContentTemplate>
+        <a href="#"> <p class="sectionHeadingSubPage text-left">Student Information</p> </a>
+        <div class="col-lg-12">
+            <%-- InsertItemPosition="LastItem"--%>
+            <asp:ListView runat="server" ID="lvStud" DataKeyNames="id" DataSourceID="sqlStud">
+                <LayoutTemplate>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Student</th>
+                                <th>Email</th>
+                                <th>Course</th>
+                                <th>Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="itemPlaceholder" runat="server"></tr>
+                        </tbody>
+                    </table>
+                    <%--<div class="row hidden-xs">
+                        <div class="col-sm-4 bold">Name</div>
+                        <div class="col-sm-4 bold">Email</div>
+                        <div class="col-sm-4">&nbsp;</div>
+                    </div>--%>
+                </LayoutTemplate>
+                <EmptyDataTemplate>
+                    <div class="alert alert-warning" role="alert">Please make sure to <strong>ADD</strong> at least 1 student by <strong>CLICKING</strong> the <strong>Add Student</strong> button</div>
+                </EmptyDataTemplate>
+                <ItemTemplate>
+                    <tr>
+                        <td><strong class="hidden-lg hidden-md hidden-sm">Name:</strong> <%#Eval("name") %></td>
+                        <td><strong class="hidden-lg hidden-md hidden-sm">Email:</strong> <%#Eval("email") %></td>
+                        <td><strong class="hidden-lg hidden-md hidden-sm">Course:</strong> <%#Eval("courseName") %></td>
+                        <td class="text-right">
+                            <%--<asp:LinkButton ID="btnEdit" CausesValidation="false" runat="server" CommandName="Edit"><span class="glyphicon glyphicon-edit"></span></asp:LinkButton>--%>
+                            <%--<asp:LinkButton ID="btnDelete" CausesValidation="false" runat="server" CommandName="Delete"><span class="glyphicon glyphicon-remove"></span></asp:LinkButton>--%>
+                            <asp:Button Text="Remove" ID="btnRemove" CommandName="Delete" CssClass="btn btn-danger" runat="server" />
+                        </td>
+
+                    </tr>
+                    <%--<div class="row">
+                        <div class="col-sm-3"><strong class="hidden-lg hidden-md hidden-sm">Name:</strong> <%#Eval("name") %></div>
+                        <div class="col-sm-3"><strong class="hidden-lg hidden-md hidden-sm">Email:</strong> <%#Eval("email") %></div>
+                        <div class="col-sm-3"><strong class="hidden-lg hidden-md hidden-sm">Course:</strong> <%#Eval("courseName") %></div>
+                        <div class="col-sm-3 text-right">
+                            <asp:LinkButton ID="btnEdit" CausesValidation="false" runat="server" CommandName="Edit"><span class="glyphicon glyphicon-edit"></span></asp:LinkButton>
+                            <asp:LinkButton ID="btnDelete" CausesValidation="false" runat="server" CommandName="Delete"><span class="glyphicon glyphicon-remove"></span></asp:LinkButton>
+                        </div>
+                    </div>--%>
+                </ItemTemplate>
+                <%--                                            <InsertItemTemplate>
+                    <p class="bold">Add Student</p>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <strong class="hidden-lg hidden-md hidden-sm">Name:</strong>
+                                <asp:TextBox runat="server" ID="txtName" CssClass="form-control" Text='<%#Bind("name") %>'></asp:TextBox>
+                                <asp:RequiredFieldValidator runat="server" Display="Dynamic" ControlToValidate="txtName" CssClass="redAlert"
+                                                            ValidationGroup="ins">Name is requiered</asp:RequiredFieldValidator>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <strong class="hidden-lg hidden-md hidden-sm">Email:</strong>
+                                <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" Text='<%#Bind("email") %>'></asp:TextBox>
+                                <asp:RequiredFieldValidator runat="server" Display="Dynamic" ControlToValidate="txtEmail" CssClass="redAlert"
+                                                            ValidationGroup="ins">Email is requiered</asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator runat="server" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail" CssClass="redAlert"
+                                                                ValidationGroup="ins">Email address is incorrect</asp:RegularExpressionValidator>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 text-right">
+                            <asp:LinkButton ID="btnInsert" ValidationGroup="ins" runat="server" CommandName="Insert"><span class="glyphicon glyphicon-ok"></span></asp:LinkButton>
+                            <asp:LinkButton ID="btnCancel" CausesValidation="false" runat="server" CommandName="Cancel"><span class="glyphicon glyphicon-ban-circle"></span></asp:LinkButton>
+                        </div>
+                    </div>
+                </InsertItemTemplate>
+                <EditItemTemplate>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <strong class="hidden-lg hidden-md hidden-sm">Name:</strong>
+                                <asp:TextBox runat="server" ID="txtName" CssClass="form-control" Text='<%#Bind("name") %>'></asp:TextBox>
+                                <asp:RequiredFieldValidator runat="server" Display="Dynamic" ControlToValidate="txtName" CssClass="redAlert"
+                                                            ValidationGroup='<%#Eval("id","upd{0}") %>'>Name is requiered</asp:RequiredFieldValidator>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <strong class="hidden-lg hidden-md hidden-sm">Email:</strong>
+                                <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" Text='<%#Bind("email") %>'></asp:TextBox>
+                                <asp:RequiredFieldValidator runat="server" Display="Dynamic" ControlToValidate="txtEmail" CssClass="redAlert"
+                                                            ValidationGroup='<%#Eval("id","upd{0}") %>'>Email is requiered</asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator runat="server" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail" CssClass="redAlert"
+                                                                ValidationGroup='<%#Eval("id","upd{0}") %>'>Email address is incorrect</asp:RegularExpressionValidator>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 text-right">
+                            <asp:LinkButton ID="btnUpdate" ValidationGroup='<%#Eval("id","upd{0}") %>' runat="server" CommandName="Update"><span class="glyphicon glyphicon-ok"></span></asp:LinkButton>
+                            <asp:LinkButton ID="btnCancel" CausesValidation="false" runat="server" CommandName="Cancel"><span class="glyphicon glyphicon-ban-circle"></span></asp:LinkButton>
+                        </div>
+                    </div>
+                    UpdateCommand="dbo.tblCartStudents_u" UpdateCommandType="StoredProcedure"
+                    InsertCommand="dbo.tblCartStudents_i" InsertCommandType="StoredProcedure"
+                </EditItemTemplate>--%>
+            </asp:ListView>
+            <asp:SqlDataSource ID="sqlStud" runat="server" ConnectionString='<%$ ConnectionStrings:SQLConnectionProd %>'
+                               SelectCommand="dbo.tblCartStudentsCourse_s" SelectCommandType="StoredProcedure"
+                               DeleteCommand="dbo.tblCartStudents_d" DeleteCommandType="StoredProcedure">
+                <SelectParameters>
+                    <asp:CookieParameter CookieName="CartID" Name="CartId" Type="String" />
+                    <%--<asp:ControlParameter Name="cartId" ControlID="ltrId" PropertyName="Text" Type="Int32" />--%>
+                </SelectParameters>
+                <DeleteParameters>
+                    <asp:Parameter Name="id" Type="Int32" />
+                </DeleteParameters>
+                <%--<UpdateParameters>
+                    <asp:Parameter Name="id" Type="Int32" />
+                    <asp:Parameter Name="name" Type="String" />
+                    <asp:Parameter Name="email" Type="String" />
+                </UpdateParameters>--%>
+                <%--<InsertParameters>
+                    <asp:ControlParameter Name="cartId" ControlID="ctlStudentCourse" PropertyName="SelectedValue" Type="Int32" />
+                    <asp:Parameter Name="name" Type="String" />
+                    <asp:Parameter Name="email" Type="String" />
+                </InsertParameters>--%>
+            </asp:SqlDataSource>
+
+            <%--                                        <asp:GridView ID="ctlStudentList" AutoGenerateColumns="false" CssClass="table table-hover" DataKeyNames="id" GridLines="None" EnableViewState="true" runat="server" OnDataBound="ctlStudentList_DataBound">
+                <Columns>
+                    <asp:TemplateField HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden" FooterStyle-CssClass="hidden">
+                        <HeaderTemplate>
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Email</th>
+                                    <th>Course</th>
+                                    <th>Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <td>
+                                <span class="hidden-lg hidden-md hidden-sm"><strong>Student:</strong></span>
+                                <asp:Label ID="ctlStudentName" Text='<%# Bind("student_name") %>' runat="server" />
+                            </td>
+                            <td>
+                                <span class="hidden-lg hidden-md hidden-sm"><strong>Email:</strong></span>
+                                <asp:Label ID="ctlStudentEmail" Text='<%# Bind("student_email") %>' runat="server" />
+                            </td>
+                            <td>
+                                <span class="hidden-lg hidden-md hidden-sm"><strong>Course:</strong></span>
+                                <asp:Label ID="ctlStudentCourse" Text='<%# Bind("student_course") %>' runat="server" />
+                            </td>
+                            <td>
+                                <span class="hidden-lg hidden-md hidden-sm"><strong>Remove:</strong></span>
+                                <asp:CheckBox ID="ctlRemove" runat="server" />
+                            </td>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </tbody>
+                        </FooterTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>--%>
+
+            <%--<div class="form-group text-right">
+                <asp:Button ID="ctlRemoveStudent" runat="server" CssClass="btn btn-danger" Text="Remove Selected Student" OnClick="ctlRemoveStudent_Click" />
+            </div>--%>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <a href="#"> <p class="sectionHeadingSubPage text-left">Add Student</p> </a>
+
+                <%--<asp:Panel ID="ctlShowStudentNotification" runat="server">
+                    <div class="alert alert-warning" role="alert">Please make sure to <strong>ADD</strong> at least 1 student by <strong>CLICKING</strong> the <strong>Add Student</strong> button</div>
+                </asp:Panel>--%>
+
+                <div class="form-group">
+                    <asp:CheckBox ID="ctlStudentInfoSame" OnCheckedChanged="ctlStudentInfoSame_CheckedChanged" AutoPostBack="true" runat="server" Text="Same As Contact Information" /><%--&nbsp;&nbsp;Same As Contact Information--%>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <asp:Label ID="Label1" runat="server" AssociatedControlID="ctlStudentName" Text="Student Name" />
+                    <asp:TextBox ID="ctlStudentName" data-validation="required" data-validation-error-msg="Please enter a students name" CssClass="form-control" AutoCompleteType="None" placeholder="Student Name" runat="server" />
+                    <asp:RequiredFieldValidator ValidationGroup="ins" ErrorMessage="Name is required" CssClass="redAlert" Display="Dynamic" ControlToValidate="ctlStudentName" runat="server" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <asp:Label ID="Label2" runat="server" AssociatedControlID="ctlStudentEmail" Text="Student Email" />
+                    <asp:TextBox ID="ctlStudentEmail" data-validation="required" data-validation-error-msg="Please enter a valid email address" CssClass="form-control" AutoCompleteType="None" placeholder="Student Email Address" runat="server" />
+                    <asp:RequiredFieldValidator runat="server" Display="Dynamic" ControlToValidate="ctlStudentEmail" CssClass="redAlert"
+                                                ValidationGroup="ins">Email is requiered</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator runat="server" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                                                    ControlToValidate="ctlStudentEmail" CssClass="redAlert"
+                                                    ValidationGroup="ins">Email address is incorrect</asp:RegularExpressionValidator>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <asp:Label ID="Label3" runat="server" AssociatedControlID="ctlStudentCourse" Text="Course" />
+                    <asp:DropDownList ID="ctlStudentCourse" CssClass="form-control"
+                                      placeholder="Country" runat="server" DataSourceID="sqlCourse" DataValueField="id" DataTextField="courseName" AppendDataBoundItems="true">
+                        <asp:ListItem Value="0">Select Course</asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ValidationGroup="ins" ErrorMessage="Select the course" CssClass="redAlert" Display="Dynamic"
+                                                ControlToValidate="ctlStudentCourse" runat="server" InitialValue="0" />
+
+                    <asp:SqlDataSource ID="sqlCourse" runat="server" ConnectionString='<%$ ConnectionStrings:SQLConnectionProd %>'
+                                       SelectCommand="dbo.shoppingCartCourses" SelectCommandType="StoredProcedure">
+                        <SelectParameters>
+                            <asp:CookieParameter CookieName="CartID" Name="CartId" Type="String" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-sm-2 col-xs-3">
+                    <img src="images/warning.jpg" style="max-width:100%" />
+                </div>
+                <div class="col-sm-8 col-xs-9">
+                    <span class="italic">
+                        Select a course from the above Drop down list or 1ocate a course
+                        from the search box at the top of the screen.
+                        You can also select a course from the Courses Menu.
+                    </span>
+                </div>
+                <div class="col-sm-2 col-xs-12 text-right">
+                    <asp:Button ID="ctlAddStudent" ValidationGroup="ins" runat="server" CssClass="btn btn-success" Text="Add Student" OnClick="ctlAddStudent_Click" />
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </ContentTemplate>
+</asp:UpdatePanel>

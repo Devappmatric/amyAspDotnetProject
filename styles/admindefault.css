@@ -1,0 +1,15 @@
+﻿/*Global Styles*/
+
+.padding5T { padding-top: 5px; }
+
+.padding10T { padding-top: 10px; }
+
+.padding20T { padding-top: 20px; }
+
+.padding20B { padding-bottom: 20px; }
+
+.rowHover:hover { background-color: #DDD; }
+
+.rowPadding { padding: 10px 0 10px 0;}
+
+.ruler { border-bottom: 1px solid #DDD;}

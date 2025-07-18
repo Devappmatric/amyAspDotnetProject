@@ -1,0 +1,927 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="default.master.cs" EnableTheming="true" Inherits="ProductivityPointGlobal.DefaultMaster" %>
+
+
+<!DOCTYPE html>
+
+<html amp lang="en-us">
+<head runat="server">
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes">   
+    <meta name="apple-mobile-web-app-title" content="PPLS">
+    <meta name="application-name" content="PPLS">
+    <%--Styles--%>    
+    <link rel="stylesheet" href="/styles/Minified.css" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link href="styles/customstyle.css" rel="stylesheet" />
+    <!-- Hotjar Tracking Code for http://productivitypoint.com -->
+    <script>
+        (function (h, o, t, j, a, r) {
+            h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+            h._hjSettings = { hjid: 487136, hjsv: 5 };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script'); r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
+    <style>
+        @media (min-width: 1200px) {
+            .container {
+                width: 1310px;
+            }
+        }
+        .breadcrumb-box >a{
+            font-weight:600;
+        }
+        .custom-link-margin-height{
+            height:8px;
+        }
+        /*.breadcrumb-link{
+            text-decoration:underline !important;
+        }*/
+        #ctlViewCart {
+             border: 0px solid #aaa; 
+             background: none; 
+             border-radius: 0px; 
+            padding:12px;
+             margin: 0px; 
+        }
+        .custom-input-style{
+            background:white;
+        }
+
+        .orange-color{
+            background-color:#e85c24;
+        }
+
+        .orange-color:hover {
+            background-color:#e85c24;
+        }
+
+        .orange-color:focus {
+            background-color:#e85c24;
+        }
+
+        .orange-color:active {
+            background-color:#e85c24;
+        }
+    </style>
+    <style>
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .catalog-inner-box{
+            border: 2px solid #e5e5e5 !important;
+        }
+        @media screen and (max-width: 572px) {
+            .section1RowSubpageCityPage{
+                font-family:sans-serif !important;
+            } 
+        }
+
+         @media (min-width: 768px) and (max-width: 1200px) {
+            #header-logo-homepage {
+                width:200px;
+                margin-top:-70px !important;
+                overflow:hidden;
+            }
+        }
+
+         @media (max-width: 732px) {
+            #header-logo-homepage {
+                display:none !important
+            }
+        }
+            
+    </style>
+    <style>
+        .sub-menu-parent {
+            position: relative;
+        }
+        
+
+        .sub-menu-parent:hover > .sub-menu-child{
+            display:block !important;
+        }
+
+        .sub-menu-child {
+            display:none;
+            position: absolute;
+            right: -210px;
+            top:0px;
+            width: 210px;
+            background-color: white;
+            list-style-type:none;
+            padding-left:0px;
+        }
+
+        .sub-menu-child:hover{
+            background-color:#ebeff3;
+        }
+
+        .sub-menu-child>li > a{
+                /* font-family: Roboto-Medium; */
+                font-family: Candara;
+                font-size: 16px;
+                line-height: 1.5;
+                color: #222;
+                position: relative;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: flex;
+                align-items: center;
+                height: 100%;
+                padding: 5px 0px;
+                margin: 0 18px;
+                transition: all 0.3s;
+                -o-transition: all 0.3s;
+                -moz-transition: all 0.3s;
+                -webkit-transition: all 0.3s;
+                clear: both;
+                font-weight: 400;
+                line-height: 1.42857143;
+                color: #333;
+                white-space: nowrap;
+        }
+
+        .sub-menu-parent > .sub-menu-child:hover {
+            display: block !important;
+        }
+    </style>
+    <style>
+        .dropdownmobile > a{
+            color: white !important;
+            font-family: sans-serif!important;
+        }
+
+        .dropdownmobile > ul>li>a{
+            color: white !important;
+            font-family: sans-serif!important;
+        }
+
+        .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+            
+            font-family: sans-serif!important;
+        }
+
+        .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+            font-weight:700;
+        }
+       
+       
+        .dropdownmobile  >a[aria-expanded=true] .glyphicon-chevron-down {
+           transition: .3s transform ease-in-out;
+           transform:rotate(180deg)
+        }
+
+        .dropdownmobile  >a[aria-expanded=false] .glyphicon-chevron-down {
+           transition: .3s transform ease-in-out;
+           transform:rotate(0deg)
+        }
+        
+        .montserrat-no-bold{
+            font-family:sans-serif !important;
+            font-weight:300 !important;
+        }
+        @media (min-width: 320px){
+            .mobile-slider-description>p {
+                font-family:sans-serif !important;
+                font-weight:300 !important;
+            }
+
+            .header-links-mobile {
+                font-family:sans-serif !important;
+                color:white !important;
+            }
+
+            .navbar-default .navbar-nav > li > a {
+                font-family:sans-serif !important;
+            }
+
+        }
+
+        @media (min-width: 320px){
+            h1{
+                font-family:sans-serif !important;
+                font-weight:300 !important;
+            }
+        }
+
+        .megamenu>li ul>li>a:active, .megamenu>li ul>li>a:focus, .megamenu>li ul>li>a:hover {
+            text-decoration: none;
+            color: #007ab8;
+            background-color: #fff;
+            outline-offset: -40px !important;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+    <link href="styles/custom-navigation.css" rel="stylesheet" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137906914-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-137906914-1');
+    var isHomePage = false;
+</script>
+    <link href="/styles/newslider.css" rel="stylesheet" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+</head>
+<body>
+    <form id="ctlMasterForm" runat="server">
+        <asp:ScriptManager runat="server" ID="sm" />
+
+        
+    <nav style="box-shadow: 0px 10px 51px 10px rgba(0,0,0,0.15);font-family:sans-serif !important" class="navbar navbar-default navbar-fixed-top">
+        <div class="container" id="top-navigation-headers" style="height:44px;" >
+            <div class="row hidden-lg hidden-md" style="height:32px;">
+                <div class="col-md-4">
+                     <a style="position:relative" class="header-links-mobile" href="/cart">
+                         <span id="shopping-items" class="shopping-items"><%=lvCart.Items.Count %></span>
+                         <i class="fa fa-cart-arrow-down"></i>
+<%--                         <img style="height:20px;" src="/images/site/cart-icon-grey.png" />--%>
+                        Cart
+                     </a>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="/contact.aspx" class="header-links-mobile"  style="float:right">  <i class="fa fa-envelope"></i> Contact Us</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="javascript:;" class="header-links-mobile purechat-button-expand" style="float:right">
+                        <img id="contact-image2" style="height:20px;" alt="Chat" src="/images/site/Chat_Icon_Black.png" />  Chat
+                    </a>
+                </div>
+            </div>
+            <div class="row  hidden-sm hidden-xs" id="header" style="height:32px;">
+                <div class="col-md-12" style="padding-right:20px;">
+                   <div class="ctlCart">
+                       <a class="header-links" href="#" onclick="return false;"  style="float:right" id="ctlCart" > 
+                         <span id="shopping-items" class="shopping-items" style="font-family:Candara !important"><%=lvCart.Items.Count %></span>
+                        <img id="cart-image" style="height:20px;" alt="Chat" src="/images/site/cart-icon-grey.png" />
+                          
+                        Cart
+                        </a>
+                       <div class="shopping-cart-list" style="width:unset;display:none;">
+                           <asp:ListView runat="server" ID="lvCart" DataKeyNames="sid" DataSourceID="sqlCart" OnDataBound="lvCart_DataBound">
+                                <EmptyDataTemplate >
+                                    <p  style="font-size:16px;font-weight:500;text-align:center;padding-top:3px;line-height:1.7;margin-bottom:1px;width:150px;" class="sectionHeadingSubPage text-left subSectionPadding text-primary">Your Cart Is Empty</p>
+                                </EmptyDataTemplate>
+                           
+                                <ItemTemplate>
+                                    <div class="content-box" style="width:320px;">
+                                        <div class="title" style="position:relative">
+                                            <span style="margin-right:10px;"><a class="text-primary" style="letter-spacing: 1.2px;" href="/cart/cart2.aspx/"><%# Eval("courseName") %></span>
+                                            <span class="pull-right"><asp:LinkButton ID="btnDel" runat="server" CommandName="Delete" ><i style="position:absolute;right:0;top:0" class="fa fa-trash"></i></asp:LinkButton></span>
+                                        </div>
+                                        <div class="date-and-quant">
+                                            <div class="quant text-primary">
+                                                Quantity: <%#Eval("Quantity") %>
+                                            </div>
+                                            <div class="date text-primary">
+                                                 <%#Eval("startDate","{0:MM/dd/yyyy}") %> - <%#Eval("endDate","{0:MM/dd/yyyy}") %> (<%# Eval("duration") %> <%# Convert.ToInt32(Eval("duration"))>1?"Days":"Day"%>) <br /> <%#DateTime.Parse(Eval("startTime").ToString()).ToString("h:mm t\\M") %> - <%#DateTime.Parse(Eval("endTime").ToString()).ToString("h:mm t\\M") %> (<%#Eval("timeZone").ToString()%>)
+                                            </div>
+                                        </div>
+                                        <div class="total">
+                                            <span class="pull-right" style="color:#4c4c4c">
+                                                <asp:Literal runat="server" ID="linetotal" Text='<%# Eval("price") %>' Visible="false" />
+                                                <asp:Literal runat="server" ID="quantity" Text='<%# Eval("Quantity") %>' Visible="false" />
+                                                $<%# (Convert.ToDecimal(Eval("price")) * Convert.ToDecimal(Eval("Quantity"))).ToString("0,00.00") %>
+                                            </span>
+                                        </div>
+                                    </div>  
+                                </ItemTemplate>
+                            </asp:ListView>
+                           <%if (lvCart.Items.Count > 0)
+                                   { %>
+                              <div class="summary-box">
+                                    <div style="padding-bottom:8px;color:black;">
+                                        <b style="font-size: 15px;color:black">SUBTOTAL</b>
+                                        <% decimal total = 0;
+                                           foreach (var item in lvCart.Items)
+                                           {
+                                               var temp2 = decimal.Parse((item.FindControl("linetotal") as Literal).Text);
+                                               decimal quantity = Decimal.Parse((item.FindControl("Quantity") as Literal).Text);
+                                               total += (temp2 * quantity);
+                                           }  %>
+                                        <span class="pull-right" style="font-size: 15px;color:black"><b>$ <%=total.ToString("0,00.00") %></b></span>
+                                    </div>
+                                    <div class="row" style="position:relative">
+                                        <div class="col-md-8">
+                                            PAY NOW OR PAY LATER<br />
+                                            Pay by Credit Card at Checkout<br />
+                                            Or Pay Later By Invoice
+                                        </div>
+                                        <div class="col-md-4 continue-button">
+                                            <asp:Button ID="ctlCheckOutNav" runat="server" CssClass="btn btn-primary" Text="Checkout" OnClick="ctlCheckOutNav_Click" />
+    <%--                                        <button class="btn btn-primary">Continue</button>--%>
+                                        </div>
+                                    </div>
+                                </div> 
+                           <%} %>
+                        </div>
+
+                       <asp:SqlDataSource ID="sqlCart" runat="server" ConnectionString='<%$ ConnectionStrings:SQLConnectionProd %>'
+                                SelectCommand="dbo.ShoppingCartItems_s" SelectCommandType="StoredProcedure"
+                                DeleteCommand="dbo.tblShoppingCart_d" DeleteCommandType="StoredProcedure">
+                                <SelectParameters>
+                                    <asp:CookieParameter Name="CartId" Type="String" CookieName="CartID" />
+                                </SelectParameters>
+                                <DeleteParameters>
+                                    <asp:Parameter Name="sid" Type="Int32" />
+                                </DeleteParameters>
+                            </asp:SqlDataSource>
+                   </div>
+                
+                    <div Id="ctlLogOutBox" runat="server">
+                        <asp:LinkButton CssClass="header-links" OnClientClick="return false;" style="float:right" ID="ctlLogOut" runat="server" ><i class="fa fa-mail-forward"></i> 
+                            Login
+                        </asp:LinkButton>
+                        <div class="logout-box" style="display:none;">
+                            <ul>
+                                <li>
+                                     <asp:LinkButton  OnClick="ctlLogOutNav_OnClick" runat="server" >Log Out</asp:LinkButton>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div Id="ctlLoginBox" runat="server">
+                         <asp:LinkButton CssClass="header-links" OnClientClick="return false;" ID="ctlViewCart" runat="server" />
+                        <div class="login-box" style="display:none;">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div style="margin-top:16px;">
+                                        <span style="font-weight:700;font-size:18px;">Log In To Productivity Point</span>
+                                    </div>
+                                        <div class="login-box-content">
+                                    
+                                        <div class="form-group">
+                                            <asp:TextBox runat="server" placeholder="Username" CssClass="form-control" ID="Username"></asp:TextBox>
+                                        </div>
+                                       <div class="form-group">
+                                           <asp:TextBox type="password" runat="server" placeholder="Password" CssClass="form-control" ID="Password"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            
+                                            <asp:Label runat="server" ID="RememberMe" CssClass="pull-left"><asp:CheckBox Checked="true" ID="ctlRememberMe" runat="server" /> </asp:Label>
+                                            <span class="pull-left" style="padding-left:3px;padding-top:1px">Remember Me</span>
+<%--                                           <label class="pull-left"><input type="checkbox" /> Remember Me</label>--%>
+
+                                         </div>
+                                        <div>
+                                            <asp:Button CssClass="btn btn-primary" style="margin:10px 0px;width:100%" runat="server" ID="ctlUserLoginNav"  OnClick="ctlUserLoginNav_Click" Text="Log In" />
+                                            <br />
+                                             <asp:LinkButton ID="ctlPasswordResetNav" style="margin:0px 0px 10px;" Text="Forgot Password" CssClass="text-primary pull-left" OnClick="ctlPasswordResetNav_Click" runat="server" />
+                                       
+                                        </div>
+                                        <div>
+                                            <a href="/Cart/Account.aspx" style="width:100%" class="btn btn-primary">
+                                                Create Account
+                                            </a>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               
+                    <div class="ctlContactBox">
+                        <a id="ctlContactBox" href="#" class="header-links" style="float:right">  <i class="fa fa-envelope"></i> Contact Us</a>
+                        <div class="contact-box" style="display:none;">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="phone" style="padding:4px;font-family:HelveticaNeueLTStd">
+                                        <span style="font-weight:700;font-size:20px">844-238-8607</span>
+                                    </div>
+                                    <div class="email"  style="padding:0px 10px 10px 10px;font-family:HelveticaNeueLTStd;cursor:pointer">
+                                        <span><a style="font-size:17px;font-weight:700" class="text-primary" href="mailto:info@productivitypointls.com">info@productivitypointls.com</a></span>
+                                    </div>
+                                    <div>
+                                        <a href="/contact.aspx" style="width:100%" class="btn btn-primary">OTHER CONTACT OPTIONS</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ctlChatBox">
+                        <a href="#" class="header-links purechat-button-expand" style="float:right">
+                        <img id="contact-image" style="height:20px;" alt="Chat" src="/images/site/Chat-Icon-grey.png" />  Chat</a>
+                    </div>
+                
+
+                </div>
+            
+            </div>
+        </div>
+        
+        <div class="container-fluid borderBottom navWhite">
+            <div class="container">
+                
+                <div class="row">
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <a href="#" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" aria-hidden="true"><i class="fa fa-bars grey globalMobileIcons" aria-hidden="true"></i></a>
+                                <asp:LinkButton  CssClass="navbar-toggle header-links-mobile" OnClientClick="return false;" style="float:right" ID="ctlLogOutMobile" runat="server" >
+                                    </asp:LinkButton>
+                                 <asp:LinkButton PostBackUrl="/cart/login.aspx" CssClass="navbar-toggle header-links-mobile" style="float:right" ID="ctlLoginMobile" runat="server" >
+                                     <i class="fa fa-user"></i> Log In
+                                    </asp:LinkButton>
+                                <asp:LinkButton OnClick="ctlLogOutNav_OnClick"  CssClass="navbar-toggle header-links-mobile" style="float:right" ID="ctlLogoutMobileHeader" runat="server" >
+                                     <i class="fa  fa-sign-out"></i> Log Out
+                                    </asp:LinkButton>
+                              <%--  <a href="/cart/" class="navbar-toggle collapsed">
+                                    <i class="fa fa-shopping-cart grey globalMobileIcons" aria-hidden="true"></i>
+                                </a>--%>
+<%--                                <a href="/cart/login.aspx" class="navbar-toggle collapsed"><i class="fa fa-sign-in grey globalMobileIcons" aria-hidden="true"></i></a>--%>
+                                <a href="/" title="Productivity Point Learning Solutions - Home Page">
+                                    <img class="navbar-brand hidden-lg hidden-md hidden-sm" src="/images/homepage/new-logo.png" alt="Productivity Point Learning Solutions" />
+                                </a>
+                                 
+                                <%--<asp:ImageButton ID="imgLogo" CssClass="navbar-brand hidden-lg hidden-md hidden-sm" ImageUrl="~/images/ppls-logo1.png" PostBackUrl="~/default.aspx" AlternateText="Productivity Point Learning Solution" runat="server" />--%>                                
+                            </div>
+
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <a href="/" title="Productivity Point Learning Solutions">
+                                <%--<img src="/images/PPLS--logo.png" alt="Productivity Point Learning Solutions" />--%>
+<%--                                    <img class="header_logo" src="/images/site/PPG_Solutions-01.svg" src="/images/homepage/new-logo.png" style="margin-top:10px;" alt="Productivity Point Learning Solutions" />--%>
+                                    <img class="header_logo hidden-sm hidden-xs"  id="header-logo-homepage" src="/images/site/PPG_Solutions-01.svg"  alt="Productivity Point Learning Solutions" />
+                                </a>
+                                <ul class="nav navbar-nav hidden-sm hidden-xs">
+                                    <li class="dropdown menu-large" >
+				                        <a href="#" class="dropdown-toggle bold font-secondary-home" style="margin-bottom:10px;" data-toggle="">Training And Certifications  
+                                            <i class="glyphicon glyphicon-chevron-down"></i>
+				                        </a>				
+				                        <ul class="dropdown-menu megamenu row ">
+					                        <li class="col-sm-4 mega-left-menu">
+						                        <ul class="">
+							                        <li class="technology-category-main"><a style="font-weight:700 !important;" href="/courses">Course Catalog</a></li>
+							                        <li class="technology-brand-link"><a  href="/technical-courses.aspx">Technical Brands</a></li>
+							                        <li class="technology-topic-link"><a  href="/technical-courses.aspx">Technical Topics</a></li>
+							                        <li class="technology-desktop-link"><a href="/desktop-applications.aspx">Business Applications</a></li>
+							                        <li  class="technology-professional-link"><a href="/professional-development.aspx">Leadership & Professional Development</a></li>
+						                        </ul>
+					                        </li>
+					                        <li class="col-sm-8 mega-right-menu">
+                                                <div class="technology-brand sub-menu">
+                                                     <div class="header">
+                                                        Technical Brands
+                                                    </div>
+                                                     <%
+                                                         var brandCount = 17;//TechnicalBrands.Rows.Count;
+                                                         var firstRow = 6; //(int) Math.Ceiling(((decimal)brandCount / 3));
+                                                         var secondRow = 12;// 2*firstRow;
+                                                         %>
+						                            <div class="row submenu-content">
+                                                        <div class="col-md-4">
+                                                            <ul class="custom-ul-list">
+                                                                 <%for (int i = 0; i < firstRow; i++){
+                                                                         var dataRow=TechnicalBrands.Rows[i];
+                                                                         var catalogTopics = dataRow["catalogBrand"].ToString();
+                                                                         %>
+                                                                <li>
+                                                                    <a href="/brand/<%=catalogTopics.ToString().Replace(" ","-").ToLower() %>/technical-courses"><%=catalogTopics %></a>
+                                                                </li>
+                                                                 <%} %>
+                                                            </ul> 
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                           <ul class="custom-ul-list">
+                                                                <%for (int i = firstRow; i < secondRow; i++){
+                                                                         var dataRow=TechnicalBrands.Rows[i];
+                                                                         var catalogTopics = dataRow["catalogBrand"].ToString();
+                                                                         %>
+                                                                <li>
+                                                                    <a href="/brand/<%=catalogTopics.ToString().Replace(" ","-").ToLower() %>/technical-courses"><%=catalogTopics %></a>
+                                                                </li>
+                                                                 <%} %>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <ul class="custom-ul-list">
+                                                                 <%for (int i = secondRow; i < brandCount; i++){
+                                                                         var dataRow=TechnicalBrands.Rows[i];
+                                                                         var catalogTopics = dataRow["catalogBrand"].ToString();
+                                                                         %>
+                                                                <li>
+                                                                    <a href="/brand/<%=catalogTopics.ToString().Replace(" ","-").ToLower() %>/technical-courses"><%=catalogTopics %></a>
+                                                                </li>
+                                                                 <%} %>
+                                                                <li>
+                                                                    <a class="viewall-link" href="/technical-courses.aspx"><u> View All</u></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+						                            </div>
+                                                </div>
+                                                
+                                                <div class="technology-topic sub-menu">
+                                                     <div class="header">
+                                                        Technical Topics
+                                                    </div>
+                                                     <%
+                                                         brandCount = 15; // TechnicalTopics.Rows.Count;
+                                                         firstRow = 6; // (int) Math.Ceiling(((decimal)brandCount / 3));
+                                                         secondRow = 12; // 2*firstRow;
+                                                         %>
+						                            <div class="row submenu-content">
+                                                        <div class="col-md-4">
+                                                            <ul class="custom-ul-list">
+                                                                 <%for (int i = 0; i < firstRow; i++){
+                                                                         var dataRow=TechnicalTopics.Rows[i];
+                                                                         var catalogTopics = dataRow["catalogTopic"].ToString();
+                                                                         %>
+                                                                <li>
+                                                                    <a href="/topic/<%=catalogTopics.ToString().Replace(" ","-").ToLower() %>/technical-courses"><%=catalogTopics %></a>
+                                                                </li>
+                                                                 <%} %>
+                                                            </ul> 
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                           <ul class="custom-ul-list">
+                                                                <%for (int i = firstRow; i < secondRow; i++){
+                                                                         var dataRow=TechnicalTopics.Rows[i];
+                                                                         var catalogTopics = dataRow["catalogTopic"].ToString();
+                                                                         %>
+                                                                <li>
+                                                                    <a href="/topic/<%=catalogTopics.ToString().Replace(" ","-").ToLower() %>/technical-courses"><%=catalogTopics %></a>
+                                                                </li>
+                                                                 <%} %>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <ul class="custom-ul-list">
+                                                                <%for (int i = secondRow; i < brandCount; i++){
+                                                                         var dataRow=TechnicalTopics.Rows[i];
+                                                                         var catalogTopics = dataRow["catalogTopic"].ToString();
+                                                                         %>
+                                                                <li>
+                                                                    <a href="/topic/<%=catalogTopics.ToString().Replace(" ","-").ToLower() %>/technical-courses"><%=catalogTopics %></a>
+                                                                </li>
+                                                                 <%} %>
+                                                                <li>
+                                                                    <a class="viewall-link"  href="/technical-courses.aspx"><u> View All</u></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+						                            </div>
+                                                </div>
+                                                <div class="technology-desktop sub-menu">
+                                                     <div class="header">
+                                                        Business Application Courses
+                                                    </div>
+                                                    <%
+                                                        brandCount = 15;// DesktopTopics.Rows.Count;
+                                                        firstRow = 6; //(int) Math.Ceiling(((decimal)brandCount / 3));
+                                                        secondRow = 12; //2*firstRow;
+                                                         %>
+						                            <div class="row submenu-content">
+                                                        <div class="col-md-4">
+                                                            <ul class="custom-ul-list">
+                                                                <%for (int i = 0; i < firstRow; i++){
+                                                                         var dataRow=DesktopTopics.Rows[i];
+                                                                         var catalogTopics = dataRow["catalogTopic"].ToString();
+                                                                         %>
+                                                                <li>
+                                                                    <a href="/topic/<%=catalogTopics.ToString().Replace(" ","-").ToLower() %>/desktop-applications"><%=catalogTopics %></a>
+                                                                </li>
+                                                                 <%} %>
+                                                            </ul> 
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                           <ul class="custom-ul-list">
+                                                                  <%for (int i = firstRow; i < secondRow; i++){
+                                                                         var dataRow=DesktopTopics.Rows[i];
+                                                                         var catalogTopics = dataRow["catalogTopic"].ToString();
+                                                                         %>
+                                                                <li>
+                                                                    <a href="/topic/<%=catalogTopics.ToString().Replace(" ","-").ToLower() %>/desktop-applications"><%=catalogTopics %></a>
+                                                                </li>
+                                                                 <%} %>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <ul class="custom-ul-list">
+                                                                  <%for (int i = secondRow; i < brandCount; i++){
+                                                                         var dataRow=DesktopTopics.Rows[i];
+                                                                         var catalogTopics = dataRow["catalogTopic"].ToString();
+                                                                         %>
+                                                                <li>
+                                                                    <a href="/topic/<%=catalogTopics.ToString().Replace(" ","-").ToLower() %>/desktop-applications"><%=catalogTopics %></a>
+                                                                </li>
+                                                                 <%} %>
+                                                                 <li>
+                                                                    <a class="viewall-link" href="/desktop-applications.aspx"><u> View All</u></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+						                            </div>
+                                                </div>
+                                                <div class="technology-professional sub-menu">
+                                                     <div class="header">
+                                                        Professional Development Courses
+                                                    </div>
+                                                     <%
+                                                         brandCount = 14;// ProfessionalTopics.Rows.Count;
+                                                         firstRow = 5;// (int) Math.Ceiling(((decimal)brandCount / 3));
+                                                         secondRow = 10; // 2*firstRow;
+                                                         %>
+						                            <div class="row submenu-content">
+                                                        <div class="col-md-4">
+                                                            <ul class="custom-ul-list">
+                                                                <%for (int i = 0; i < firstRow; i++){
+                                                                         var dataRow=ProfessionalTopics.Rows[i];
+                                                                         var catalogTopics = dataRow["catalogTopic"].ToString();
+                                                                         %>
+                                                                <li>
+                                                                    <a href="/topic/<%=catalogTopics.ToString().Replace(" ","-").ToLower() %>/professional-development-skills"><%=catalogTopics %></a>
+                                                                </li>
+                                                                 <%} %>
+                                                            </ul> 
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                           <ul class="custom-ul-list">
+                                                                  <%for (int i = firstRow; i < secondRow; i++){
+                                                                         var dataRow=ProfessionalTopics.Rows[i];
+                                                                         var catalogTopics = dataRow["catalogTopic"].ToString();
+                                                                         %>
+                                                                <li>
+                                                                    <a href="/topic/<%=catalogTopics.ToString().Replace(" ","-").ToLower() %>/professional-development-skills"><%=catalogTopics %></a>
+                                                                </li>
+                                                                 <%} %>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <ul class="custom-ul-list">
+                                                                  <%for (int i = secondRow; i < brandCount; i++){
+                                                                         var dataRow=ProfessionalTopics.Rows[i];
+                                                                         var catalogTopics = dataRow["catalogTopic"].ToString();
+                                                                         %>
+                                                                <li>
+                                                                    <a href="/topic/<%=catalogTopics.ToString().Replace(" ","-").ToLower() %>/professional-development-skills"><%=catalogTopics %></a>
+                                                                </li>
+                                                                 <%} %>
+                                                                <li>
+                                                                    <a class="viewall-link"  href="/professional-development.aspx"><u> View All</u></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+						                            </div>
+                                                </div>
+					                        </li>
+				                        </ul>
+
+			                        </li>
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle bold font-secondary-home" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" aria-hidden="true">Solutions  <i class="glyphicon glyphicon-chevron-down"></i> </a>
+                                         <ul class="dropdown-menu mini-menu">
+                                            <li>
+                                                <a href="#">Private Groups</a>
+                                            </li>
+                                             <li class="sub-menu-parent">
+                                                 <a href="/GovernmentSolutions.aspx">Government Solutions</a>
+                                                 <!--<ul class="sub-menu-child">
+                                                     <li>
+                                                         <a href="/DOD8570Certification.aspx">DoD 8570 Certifications</a>
+                                                     </li>
+                                                 </ul>
+                                                 <span>
+                                                     <img style="position:absolute;right:0;top:40%;height:10px;"  src="images/courses_site_images/right-icon.png" />
+                                                 </span>-->
+                                             </li>
+                                             
+                                             <li>
+                                                   <a href="/professional-services.aspx">Software Development</a>
+                                             </li>
+                                             <li>
+                                                 <a href="/event-hosting.aspx">Classroom Rentals</a>
+                                             </li>
+                                             <li>
+                                                 <a href="#">Special Offers</a>
+                                             </li>
+                                        </ul>
+                                    </li>
+                                     <li class="dropdown">
+                                         <a class="dropdown-toggle bold font-secondary-home" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" aria-hidden="true">Locations  <i class="glyphicon glyphicon-chevron-down"></i></a>
+                                        <ul class="dropdown-menu mini-menu" style="width:160px;">
+                                            <li>
+                                                <a href="/city-courses.aspx">By City</a>
+                                            </li>
+                                             <li>
+                                                 <a href="/national-locations.aspx">By State</a>
+                                             </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                         <a class="dropdown-toggle bold font-secondary-home" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" aria-hidden="true">About Us <i class="glyphicon glyphicon-chevron-down"></i></a>
+                                        <ul class="dropdown-menu mini-menu about-dropdown" style="width:230px;">
+                                            <li>
+                                                <a href="/about-ppls.aspx">Explore Productivity Point</a>
+                                            </li>
+                                             <li>
+                                                 <a href="/delivery-methods.aspx">Delivery Methods</a>
+                                             </li>
+                                             <li>
+                                                   <a href="/partners.aspx">Productivity Point Partners</a>
+                                             </li>
+                                            <li>
+                                                <a href="#">Careers</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown">
+                                         <a class="dropdown-toggle bold font-secondary-home" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" aria-hidden="true">Resources <i class="glyphicon glyphicon-chevron-down"></i></a>
+                                        <ul class="dropdown-menu mini-menu resources-dropdown" style="width:230px;">
+                                            <li>
+                                                <a href="/Resources/Blog.aspx">News & Blogs</a>
+                                            </li>
+                                             <li>
+                                                 <a href="/Resources/PressReleases.aspx">Press Releases</a>
+                                             </li>
+                                        </ul>
+                                    </li>
+
+                                	<li>
+											<input type="checkbox" id="searchBtn" style="display: none;background:white" />
+											<a href="#" id="searchIcon" style="cursor:pointer;margin-top:6px;">
+<%--                                                <i id="searchIcon" class="fa fa-search fa-lg"></i>--%>
+                                                <img id="searchIconImage" alt="Search" runat="server" style="width:32px;height:32px;" src="/images/site/Search_icon.png">
+                                                <span>Search</span>
+											</a>
+									</li>
+									<li>
+                                        
+										
+									</li>
+                                </ul>
+
+                                <ul class="nav navbar-nav navbar-mobile hidden-md hidden-lg">
+                                    <li class="dropdownmobile">
+                                        <a  style="font-family:sans-serif !important" class="dropdown-toggle bold font-secondary-home" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" aria-hidden="true">Training And Certifications 
+                                            <i class="glyphicon glyphicon-chevron-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a style="font-family:sans-serif !important"  href="/technical-courses.aspx">Technical Courses</a>
+                                            </li>
+                                             <li>
+                                                 <a style="font-family:sans-serif !important"  href="/desktop-applications.aspx">Business Applications</a>
+                                             </li>
+                                             <li>
+                                                   <a style="font-family:sans-serif !important" href="/professional-development.aspx">Leadership & Professional Development</a>
+                                             </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdownmobile">
+                                        <a style="font-family:sans-serif !important" class="dropdown-toggle bold font-secondary-home" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" aria-hidden="true">Solutions 
+                                            <i class="glyphicon glyphicon-chevron-down"></i>
+                                        </a>
+                                         <ul class="dropdown-menu">
+                                            <li>
+                                                <a style="font-family:sans-serif !important" href="#">Private Groups</a>
+                                            </li>
+                                             <li>
+                                                 <a style="font-family:sans-serif !important" class="government-solution" href="/GovernmentSolutions.aspx">Government Solutions</a>
+                                             </li>
+                                             <li>
+                                                   <a style="font-family:sans-serif !important" href="/professional-services.aspx">Consulting Services</a>
+                                             </li>
+                                             <li>
+                                                 <a style="font-family:sans-serif !important" href="/event-hosting.aspx">Classroom Rentals</a>
+                                             </li>
+                                             <li>
+                                                 <a style="font-family:sans-serif !important" href="#">Special Offers</a>
+                                             </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdownmobile">
+                                        <a style="font-family:sans-serif !important" class="dropdown-toggle bold font-secondary-home" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" aria-hidden="true">Locations 
+                                            <i class="glyphicon glyphicon-chevron-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a style="font-family:sans-serif !important" href="/city-courses.aspx">By City</a>
+                                            </li>
+                                             <li>
+                                                 <a style="font-family:sans-serif !important" href="/national-locations.aspx">By State</a>
+                                             </li>
+                                            
+                                        </ul>
+                                    </li>
+                                    <li class="dropdownmobile">
+                                         <a style="font-family:sans-serif !important" class="dropdown-toggle bold font-secondary-home" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" aria-hidden="true">About Us <i class="glyphicon glyphicon-chevron-down"></i></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a style="font-family:sans-serif !important" href="/about-ppls.aspx">Explore Productivity Point</a>
+                                            </li>
+                                             <li>
+                                                 <a style="font-family:sans-serif !important" href="/delivery-methods.aspx">Delivery Methods</a>
+                                             </li>
+                                             <li>
+                                                   <a style="font-family:sans-serif !important" href="/partners.aspx">Productivity Point Partners</a>
+                                             </li>
+                                            <li>
+                                                <a style="font-family:sans-serif !important" href="#">Careers</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div><!-- /.navbar-collapse -->
+
+                            
+                        </div><!-- /.container-fluid -->
+                    </nav>                    
+                </div>
+            </div>
+        </div>
+        <div class="searchMenu" style="display:none">
+			<asp:Panel runat="server" CssClass="input-group" DefaultButton="ctlSearchHome">
+				<asp:Label ID="ctlSearchInputHomeLabel" runat="server" AssociatedControlID="ctlSearchInputHome" Visible="False" Text="Search Box"/>
+				<asp:TextBox ID="ctlSearchInputHome" CssClass="form-control requiredHome custom-input-style" placeholder="Search for Training" runat="server" />
+				<span class="input-group-btn" style="z-index:3">
+					<asp:LinkButton  ID="ctlSearchHome" OnClick="ctlSearchHome_OnClick"  runat="server">
+                        <img style="width:32px;height:32px;" src="/images/site/Search_icon.png" />
+                    </asp:LinkButton>
+				</span>
+                
+			</asp:Panel>
+            <span class="search-close-button">
+                    <i class="fa fa-times search-close-icon"></i>
+                </span>
+		</div>
+        </nav>
+        
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+        
+        <div class="container-fluid sectionDividerTop"></div>
+                        
+        <div class="container">
+            <div class="row padding100T">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">                    
+                    <div>
+                        <a href="/" title="Productivity Point Learning Solutions - Home Page">
+                            <img class="footer_logo" src="/images/ppls_logo_2.svg" alt="Productivity Point Learning Solutions" />
+                        </a>
+                        <%--<asp:ImageButton ID="btnHome2" ImageUrl="~/images/ppls-logo1.png" AlternateText="Productivity Point Learning Solutions" runat="server" />--%>
+
+                    </div>
+                    <p>Productivity Point Learning Solutions <br class="hidden-md hidden-sm hidden-xs"/>
+                        evolved out of a desire to increase our outreach<br class="hidden-md hidden-sm hidden-xs"/>
+                        both nationally and internationally.</p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <p><strong>Productivity Point Headquarters</strong><br/>
+                        1580 Sawgrass Corporate Parkway <br/>
+                        Suite 205<br/>
+                        Sunrise, Florida 33323<br/>
+                        United States<br/>
+                        
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <p><strong>Contact</strong><br/>
+                        T 1-844-238-8607<br/>
+                        P 1-954-425-6141<br/>
+                        F 1-954-928-9057<br/>
+                        E <a href="mailto:info@productivitypointls.com">info@productivitypointls.com</a></p>
+                </div>
+                <div style="font-family:'HelveticaNeueLTStd'" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding80T padding50B text-center">                                        
+                    &copy; Copyright <asp:Label ID="ctlFooterYear" runat="server" /> Productivity Point Learning Solutions. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+        <%--Scripts--%>            
+        <script src="/scripts/Minified.js"></script> 
+		<asp:ContentPlaceHolder ID="bodyScripts" runat="server" />
+
+         <script src="/scripts/custom-navigation.js"></script>
+
+        <script>
+            
+            (function () {
+                document.querySelector("#searchBtn").addEventListener("change", function () {
+                    if (this.checked == true) {
+                        document.querySelector("#ctlSearchInputHome").focus();
+                    }
+                });
+            })();
+        </script>
+        
+        <!-- PURE CHAT -->
+        <script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: '485b4108-86b4-4aac-a936-e2a1fe641a9c', f: true }); done = true; } }; })();</script>
+    </form>
+</body>
+</html>
+

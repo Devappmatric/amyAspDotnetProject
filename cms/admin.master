@@ -1,0 +1,79 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="admin.master.cs" EnableTheming="true" Inherits="ProductivityPointGlobal.CMS.admin" %>
+<!DOCTYPE html>
+<html lang="en">
+    <head runat="server">
+        <title>CMS</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../styles/admindefault.css" />
+        <link rel="stylesheet" href="../styles/bootstrap.min.css" />
+        <link rel="stylesheet" href="../styles/font-awesome.min.css" />
+        <script type="text/javascript" src="../scripts/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="../scripts/bootstrap.js"></script>
+        <%--<script type="text/javascript" src="../scripts/bootstrap-wysiwyg.js"></script>--%>
+        <asp:ContentPlaceHolder ID="head" runat="server" />
+    </head>
+    <body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Productivity Point CMS v2.5</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><asp:LinkButton ID="ctlAdmin" Text="Admin" runat="server" /></li>
+                        <li><asp:LinkButton ID="ctlCompanies" Text="Companies" runat="server" /></li>
+                        <li><asp:LinkButton ID="ctlSpecialSavings" Text="Special Savings" runat="server" /></li>                        
+                        <li><asp:LinkButton ID="ctlPartners" Text="Partners" runat="server" /></li>                        
+                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Images<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><asp:LinkButton ID="ctlCatalogImages" Text="Catalog Images" runat="server" /></li>
+                                <li><asp:LinkButton ID="ctlBrandImages" Text="Brand Images" runat="server" /></li>
+                                <li><asp:LinkButton ID="ctlSiteImages" Text="Site Images" runat="server" /></li>
+                            </ul>
+                        </li>
+                        <%--<li><asp:LinkButton ID="ctlCourseImages" Text="Images" runat="server" /></li>--%>
+                        
+                        <%--<li><asp:LinkButton ID="ctlUsers" Text="Users" CssClass="btn btn-link" runat="server" /></li>--%>
+                        <%--<li><asp:LinkButton ID="ctlHomeLinks" Text="Home Links" CssClass="" runat="server" /></li>--%>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Course Links<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><asp:LinkButton ID="lbTechnicalCourses" Text="Technical Courses" runat="server" /></li>
+                                <li><asp:LinkButton ID="lbDesktopApplications" Text="Desktop Applications" runat="server"/></li>
+                                <li><asp:LinkButton ID="lbProfessionalDevelopment" Text="Professional Development" runat="server"/></li>
+                            </ul>
+                        </li>    
+                        <li><asp:LinkButton ID="ctlSEO" Text="SEO" runat="server" /></li>
+                        <li><asp:LinkButton ID="ctlData" Text="Import Data" runat="server" /></li>
+                        <li><asp:LinkButton ID="ctlEditor" Text="Posts" runat="server" /></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><asp:Button ID="ctlLogOut" Text="Log Off" CssClass="btn btn-danger navbar-btn btn-block" OnClick="ctlLogOut_Click" runat="server" /></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        
+        <div class="container">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />    
+        </div>        
+    </form>
+    </body>
+</html>

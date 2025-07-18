@@ -1,0 +1,9 @@
+Saturday, July 27, 2019, at 3:32 PM
+System.Net.Mail.SmtpException: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.5.1 Authentication Required. Learn more at
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at ProductivityPointGlobal.AppUtilities.LogError(Exception ex) in C:\Users\justi\Documents\_Projects\PPLS\dev_2019_07_10\App_Code\App.Utilities.cs:line 41
+
+

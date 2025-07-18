@@ -1,0 +1,35 @@
+﻿/*Custom Styles*/
+
+.font36 { font-size: 36px !important; }
+
+.font30 { font-size: 30px !important; }
+
+.font60 { font-size: 60px !important; }
+
+.font24 { font-size: 24px !important; }
+
+.font100 { font-size: 120px !important; }
+
+.padding140TB { padding-top: 70px; padding-bottom: 70px; }
+
+.paddingT45 { padding-top: 45px; }
+
+.padding20R { padding-right: 20px; }
+
+.noPadding { padding: 0 !important; }
+
+.greyBg { background: rgba(240,240,240,1); background: -moz-linear-gradient(top, rgba(240,240,240,1) 0%, rgba(250,250,250,1) 50%, rgba(240,240,240,1) 100%); background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(240,240,240,1)), color-stop(50%, rgba(250,250,250,1)), color-stop(100%, rgba(240,240,240,1))); background: -webkit-linear-gradient(top, rgba(240,240,240,1) 0%, rgba(250,250,250,1) 50%, rgba(240,240,240,1) 100%); background: -o-linear-gradient(top, rgba(240,240,240,1) 0%, rgba(250,250,250,1) 50%, rgba(240,240,240,1) 100%); background: -ms-linear-gradient(top, rgba(240,240,240,1) 0%, rgba(250,250,250,1) 50%, rgba(240,240,240,1) 100%); background: linear-gradient(to bottom, rgba(240,240,240,1) 0%, rgba(250,250,250,1) 50%, rgba(240,240,240,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', endColorstr='#f0f0f0', GradientType=0 ); }
+
+.noMargin { margin: 0 !important; }
+
+.errorTitle { font-family: Avenir65; font-size: 60px; color: #494949; letter-spacing: -2px; }
+
+.lightGreyFont { color: #7b7b7b; }
+
+.greyFont { color: #494949; }
+
+.redFont { color: #e64242; }
+
+.lineHeight18 { line-height: 36px !important; }
+
+.padding10T { padding-top: 10px; }
