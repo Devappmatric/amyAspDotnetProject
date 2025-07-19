@@ -27,38 +27,86 @@ namespace ProductivityPointGlobal
         //    return true;
         //}
 
-        public static bool SendEmail(string from, string to, string subject, string body)
-        {
-            //const string username = "AKIAIJFV4TD4YKZ7EJZQ"; // Replace with your SMTP username.
-            //const string password = "Ak4uPGemmccNvhgdbnb5iHWpCzmD1EwpKVdFnVZA86WG"; // Replace with your SMTP password.
-            //const string host = "email-smtp.us-east-1.amazonaws.com";
-            //const int port = 587;
+        
 
-            using (var client = new SmtpClient())// host, port))
+public static bool SendEmail(string from, string to, string subject, string body)
+    {
+        const string username = "vinayrathore87@gmail.com"; // Your Gmail address
+        const string password = "eqry htue gzbl khzf";       // App-specific password
+        const string host = "smtp.gmail.com";
+        const int port = 587;
+
+        try
+        {
+            using (var client = new SmtpClient(host, port))
             {
-                //client.Credentials = new System.Net.NetworkCredential(username, password);
-                //client.EnableSsl = true;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.UseDefaultCredentials = false;
+                client.Credentials = new NetworkCredential(username, password);
+                client.EnableSsl = true;
 
                 foreach (var address in to.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries))
                 {
-                    using (MailMessage message = new MailMessage(
-                        new MailAddress(from, "Productivity Point Learning Solutions"),
-                        new MailAddress(address)
-                    ))
+                    using (var message = new MailMessage())
                     {
+                        message.From = new MailAddress(from, "Productivity Point Learning Solutions");
+                        message.To.Add(address);
                         message.Subject = subject;
                         message.Body = body;
                         message.IsBodyHtml = true;
+
                         client.Send(message);
                     }
-                    //var mail = new MailMessage(from, address, subject, body) { IsBodyHtml = true };
-                    //client.Send(mail);
                 }
             }
 
             return true;
         }
-        public static bool SendEmail(MailMessage msg)
+        catch (Exception ex)
+        {
+            // Log or handle error
+            Console.WriteLine("Email sending failed: " + ex.Message);
+            return false;
+        }
+    }
+
+
+
+    //public static bool SendEmail(string from, string to, string subject, string body)
+    //{
+    //    //const string username = "AKIAIJFV4TD4YKZ7EJZQ"; // Replace with your SMTP username.
+    //    //const string password = "Ak4uPGemmccNvhgdbnb5iHWpCzmD1EwpKVdFnVZA86WG"; // Replace with your SMTP password.
+    //    //const string host = "email-smtp.us-east-1.amazonaws.com";
+    //    //const int port = 587;
+
+    //    using (var client = new SmtpClient("smtp.office365.com", 587))// host, port))
+    //    {
+    //        client.EnableSsl = true;
+    //        client.UseDefaultCredentials = true;
+    //        var appCredential = ConfigurationManager.AppSettings["EmailSendCredential"];
+
+    //        client.Credentials = new NetworkCredential("registrar@productivitypointls.com", appCredential);
+
+    //        foreach (var address in to.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries))
+    //        {
+    //            using (MailMessage message = new MailMessage(
+    //                new MailAddress(from, "Productivity Point Learning Solutions"),
+    //                new MailAddress(address)
+    //            ))
+    //            {
+    //                message.Subject = subject;
+    //                message.Body = body;
+    //                message.IsBodyHtml = true;
+    //                client.Send(message);
+    //            }
+    //            //var mail = new MailMessage(from, address, subject, body) { IsBodyHtml = true };
+    //            //client.Send(mail);
+    //        }
+    //    }
+
+    //    return true;
+    //}
+    public static bool SendEmail(MailMessage msg)
         {
             using (var client = new SmtpClient("smtp.office365.com", 587))
             {

@@ -129,12 +129,16 @@ namespace ProductivityPointGlobal.cart
                 UserInfo.UpdateUserEmail(AuthenticatedUser, email);
                 AuthenticatedUser = email;
                 ctlEditAccountInfo_ItemUpdating(sender, null);
-                
+
                 var userNameCookie = Request.Cookies.Get("UserSettings");
                 userNameCookie = new HttpCookie("UserSettings");
                 userNameCookie.Value = email; // or use email/temp ID
                 userNameCookie.Expires = DateTime.Now.AddDays(7); // Optional expiry
                 Response.Cookies.Add(userNameCookie);
+            }
+            else
+            {
+                ctlEditAccountInfo_ItemUpdating(sender, null);
             }
 
             Response.Redirect("~/cart/StudentInfo.aspx");
@@ -281,6 +285,11 @@ namespace ProductivityPointGlobal.cart
             var email = ((TextBox)ctlEditAccountInfo.FindControl("ctlEmail")).Text;
 
             UserInfo.UpdateUserInfo(AuthenticatedUser, firstName, lastName, phone, company, address, city, country, state, zipcode);
+            var billingInfoSame = (CheckBox)ctlEditAccountInfo.FindControl("ctlBillingInfoSame");
+            if (billingInfoSame.Checked)
+                UserInfo.UpdateBillingInfo(AuthenticatedUser, firstName, lastName, phone, company, address, city, country, state, zipcode);
+            else
+                ctlEditBillingInfo_ItemUpdating(sender, e);
         }
 
         protected void ctlEditBillingInfo_ItemUpdating(object sender, FormViewUpdateEventArgs e)

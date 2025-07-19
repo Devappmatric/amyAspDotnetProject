@@ -44,6 +44,9 @@
         .colorTh{
             color:#e85c24!important;
         }
+        .total-class{
+            margin-left: -25px;
+        }
     </style>
 </asp:Content>
 
@@ -150,12 +153,12 @@
                                     <td colspan="4">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <strong>Delivery Format:</strong>
+                                                <strong>Delivery Format</strong>
                                                 <br />
                                                 <asp:Literal ID="ltrDelivery" runat="server" Text='<%# Eval("deliveryFormat") %>'></asp:Literal>
                                             </div>
                                             <div class="col-md-3">
-                                                <strong>Date:</strong>
+                                                <strong>Date</strong>
                                                 <br />
                                                 <asp:Literal ID="ltrStartDate" runat="server" Text='<%#Eval("startDate","{0:MM/dd/yyyy}") %>'></asp:Literal>
                                                 - 
@@ -163,21 +166,21 @@
                                                 <asp:Literal ID="ltrEndDate" runat="server" Text='<%#Eval("endDate","{0:MM/dd/yyyy}") %>'></asp:Literal>
                                             </div>
                                             <div class="col-md-3">
-                                                <strong>Time:</strong>
+                                                <strong>Time</strong>
                                                 <br />
-                                                <asp:Literal ID="ltrStartTime" runat="server" Text='<%#DateTime.Parse(Eval("startTime").ToString()).ToString("h:mm t.\\M.") %>'></asp:Literal>
+                                                <asp:Literal ID="ltrStartTime" runat="server" Text='<%#DateTime.Parse(Eval("startTime").ToString()).ToString("h:mm tt") %>'></asp:Literal>
                                                 - 
                                              
-                                                <asp:Literal ID="ltrEndTime" runat="server" Text='<%#DateTime.Parse(Eval("endTime").ToString()).ToString("h:mm t.\\M.") %>'></asp:Literal>
+                                                <asp:Literal ID="ltrEndTime" runat="server" Text='<%#DateTime.Parse(Eval("endTime").ToString()).ToString("h:mm tt") %>'></asp:Literal>
                                             </div>
                                             <div class="col-md-3">
-                                                <strong>Duration:</strong>
+                                                <strong>Duration</strong>
                                                 <br />
                                                 <asp:Literal ID="ltrDuration" runat="server" Text='<%# Eval("duration","{0} Day Course") %>'></asp:Literal>
                                             </div>
                                         </div>
                                         <br />
-                                        <strong>Location:</strong><br />
+                                        <strong>Location</strong><br />
                                         <asp:Literal ID="ltrLocation" runat="server" Text='<%# Eval("address1").ToString().Trim() == "Live Online" ?"Live Online": Eval("address1").ToString()+" "+ Eval("address2").ToString() +", " +Eval("city").ToString() +", "+ Eval("state") +" "+ Eval("zip")%>'></asp:Literal>
                                         <asp:Literal ID="ltrLocation1" runat="server" Text='<%#string.Format("{0}, {1} {2}",  Eval("city"),Eval("state"), Eval("zip")) %>'></asp:Literal>
                                         <br />
@@ -205,7 +208,7 @@
                             </asp:Panel>
                             <div class="col-lg-10 col-md-9 col-sm-10 col-xs-8 text-right sectionSubHeadingPrices"><strong>Total:</strong></div>
                             <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-right sectionSubHeadingPrices">
-                                <asp:Label ID="lblCartTotal" runat="server" />
+                                <asp:Label ID="lblCartTotal" runat="server" CssClass="total-class" />
                                 <asp:Literal ID="ltrTotal" runat="server" Visible="false"></asp:Literal>
                             </div>
                         </div>
@@ -235,7 +238,7 @@
                                     <td><span class="hidden-lg hidden-md hidden-sm"><strong>Payment Method:</strong></span>
                                         <asp:Label ID="ctlPaymentMethod" runat="server" /></td>
                                     <td><span class="hidden-lg hidden-md hidden-sm"><strong>Payment Status:</strong></span>
-                                        <b><asp:Label ID="ctlPaymentStatus" runat="server" /></b></td>
+                                        <asp:Label ID="ctlPaymentStatus" runat="server" /></td>
                                     <td><span class="hidden-lg hidden-md hidden-sm"><strong>Total:</strong></span>
                                         <asp:Label ID="ctlTotalCost" runat="server" /></td>
                                 </tr>

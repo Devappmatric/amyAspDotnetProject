@@ -269,16 +269,16 @@ namespace ProductivityPointGlobal.Cart
             ContactFormToEmail = ConfigurationManager.AppSettings["OrderMailTo"] + ";" + EmailAddress;
 
             var msg = mailMessage.ToString();
-            //try
-            //{
-            //App.SendEmail(ConfigurationManager.AppSettings["MailFrom"], ContactFormToEmail, ContactFormSubject, mailMessage.ToString());
-            //}
-            //catch (Exception ex)
-            //{
-            //    AppUtilities.LogError(ex);
-            //    phErr.Visible = true;
-            //    lblErr.Text = ex.Message;
-            //}
+            try
+            {
+                App.SendEmail(ConfigurationManager.AppSettings["MailFrom"], ContactFormToEmail, ContactFormSubject, mailMessage.ToString());
+            }
+            catch (Exception ex)
+            {
+                AppUtilities.LogError(ex);
+                //phErr.Visible = true;
+                //lblErr.Text = ex.Message;
+            }
         }
         protected void lvCart_DataBound(object sender, EventArgs e)
         {

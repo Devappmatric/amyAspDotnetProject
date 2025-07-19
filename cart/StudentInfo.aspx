@@ -84,7 +84,7 @@
                                                             <%# Eval("courseName") %>
                                                         </span>
                                                          <span  style="float:right"><%# Eval("startDate","{0:MM/dd/yyyy}") %> - <%# Eval("endDate","{0:MM/dd/yyyy}") %></span> &nbsp;&nbsp;
-                                                        <span  style="float:right;padding-right:10px"><%#DateTime.Parse(Eval("startTime").ToString()).ToString("HH:mm") %> - <%#DateTime.Parse(Eval("endTime").ToString()).ToString("HH:mm") %></span>
+                                                        <span  style="float:right;padding-right:10px"><%#DateTime.Parse(Eval("startTime").ToString()).ToString("h:mm tt") %> - <%#DateTime.Parse(Eval("endTime").ToString()).ToString("h:mm tt") %></span>
                                                     </div>
                                                     <div>
                                                         <asp:HiddenField runat="server" ID="hfClassID"/>
