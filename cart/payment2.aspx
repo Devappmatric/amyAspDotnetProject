@@ -226,6 +226,78 @@
         .form-group {
             display: block;
         }
+        
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f6fa;
+      display: flex;
+      justify-content: center;
+      padding-top: 50px;
+    }
+
+    .payment-form {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      width: 360px;
+      padding: 20px;
+      border-top: 8px solid #0a3b5a;
+    }
+
+    .payment-form h2 {
+      margin: 0;
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .payment-form p {
+      text-align: center;
+      font-weight: bold;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .form-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .sq-input {
+      height: 40px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 8px;
+      font-size: 14px;
+      width: 100%;
+    }
+
+    #card-container {
+      margin-bottom: 15px;
+    }
+
+    #card-button {
+      width: 100%;
+      background-color: #e7642c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 12px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #card-button:hover {
+      background-color: #d85620;
+    }
+ 
     </style>
     <div class="container-fluid bgWhite subPage subSectionPadding">
         <div class="row">
@@ -353,7 +425,25 @@
                                         </div>
                                         <asp:Panel ID="ctlCCPanel" ClientIDMode="Static" runat="server">
                                             <form id="payment-form">
-                                                <div id="card-container"></div>
+                                          
+    <p>Please enter your Credit Card Information</p>
+
+    <label for="card-container">Card Number</label>
+    <div id="card-container"></div>
+
+    <div class="form-row">
+      <div style="width: 48%;">
+        <label>Expiration</label>
+        <input class="sq-input" placeholder="MM/YY" disabled>
+      </div>
+      <div style="width: 48%;">
+        <label>CVC</label>
+        <input class="sq-input" placeholder="CVC" disabled>
+      </div>
+    </div>
+
+    <label>Postal Code</label>
+    <input class="sq-input" placeholder="Postal Code" disabled>
                                                 <%--                                      <button id="card-button" type="button">Submit Order</button>--%>
                                             </form>
                                             <div id="payment-status-container"></div>
